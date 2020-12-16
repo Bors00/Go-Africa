@@ -1,0 +1,19 @@
+.auth-box{
+  padding: 25px;
+}
+mat-form-field{
+  width: 100%;
+}
+
+.wrap-input{
+margin-bottom: -15px;
+}
+.alertMsg{
+  color: #e53935;
+  font-style: italic;
+  margin-top: -15px;
+  margin-bottom: 15px;
+}
+.buttonSubmit{
+width: 100%;
+}

@@ -1,0 +1,106 @@
+<div class="auth-wrapper d-flex justify-content-center align-items-center" style="background:url(assets/images/background/login-register.jpg) no-repeat center center;">
+  <div class="auth-box m-3 col-md-5">
+    <div class="logo">
+      <span class="db"><img src="assets/images/logo-icon.png" alt="logo"/></span>
+      <h5 class="font-medium m-b-20">Sign Up to Admin</h5>
+    </div>
+    <!-- Form -->
+    <div class="row">
+      <div class="col-12">
+        <form method='post' [formGroup]="registerForm" (ngSubmit)="onSubmit()" class="form-horizontal m-t-20" action="/register">
+          <div class="form-group row">
+            <div class="col-12 ">
+              <div class="wrap-input">
+                <mat-form-field appearance="outline">
+                  <mat-label>Username</mat-label>
+                  <input matInput formControlName="username" type="text" name="username">
+                </mat-form-field>
+
+                <div *ngIf="registerForm.controls.username.invalid && (registerForm.controls.username.dirty || registerForm.controls.username.touched)"
+                    class="alertMsg">
+                  <span *ngIf="registerForm.get('username').hasError('required')">
+                    <i class="fa fa-info" aria-hidden="true" style="font-size: 11px;"></i>&nbsp; Username is required.
+                  </span>
+                  <span *ngIf="registerForm.get('username').hasError('minlength') && !registerForm.get('username').hasError('required')">
+                    <i class="fa fa-info" aria-hidden="true" style="font-size: 11px;"></i>&nbsp; Username should be minimum 4 characters long.
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="form-group row">
+              <div class="col-12 ">
+                <div class="wrap-input">
+                  <mat-form-field appearance="outline">
+                    <mat-label>Email</mat-label>
+                    <input matInput formControlName="email" type="email" name="email">
+                  </mat-form-field>
+
+                  <div *ngIf="registerForm.controls.email.invalid && (registerForm.controls.email.dirty || registerForm.controls.email.touched)"
+                    class="alertMsg">
+                    <span *ngIf="registerForm.get('email').hasError('required')">
+                      <i class="fa fa-info" aria-hidden="true" style="font-size: 11px;"></i>&nbsp; Email is required.
+                    </span>
+                    <span *ngIf="registerForm.get('email').hasError('email') && !registerForm.get('email').hasError('required')">
+                      <i class="fa fa-info" aria-hidden="true" style="font-size: 11px;"></i>&nbsp; You have to write a conform email.
+                    </span>
+                  </div>
+                </div>
+              </div>
+          </div>
+          <div class="form-group row">
+            <div class="col-12 ">
+              <div class="wrap-input">
+                <mat-form-field appearance="outline" class="matform">
+                  <mat-label>Password</mat-label>
+                  <input matInput formControlName="password" type="password" name="password">
+                </mat-form-field>
+
+                <div *ngIf="registerForm.controls.password.invalid && (registerForm.controls.password.dirty || registerForm.controls.password.touched)" class="alertMsg">
+                  <span *ngIf="registerForm.get('password').hasError('required')">
+                    <i class="fa fa-info" aria-hidden="true" style="font-size: 11px;"></i>&nbsp; Password is required.
+                  </span>
+                  <span *ngIf="registerForm.get('password').hasError('pattern') && !registerForm.get('password').hasError('required')">
+                    <i class="fa fa-info" aria-hidden="true" style="font-size: 11px;"></i>&nbsp; Password must be at least 8 characters, a minimum of 1 lower case letter and 1 uppercase and contain both numbers and special characters.
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="form-group row">
+            <div class="col-12 ">
+              <div class="wrap-input">
+                <mat-form-field appearance="outline">
+                  <mat-label>Confirm Password</mat-label>
+                  <input matInput formControlName="passwordch" name="passwordch" type="password">
+                </mat-form-field>
+
+                <div *ngIf="registerForm.controls.passwordch.invalid && (registerForm.controls.passwordch.dirty || registerForm.controls.passwordch.touched)" class="alertMsg">
+                  <i class="fa fa-info" aria-hidden="true" style="font-size: 11px;"></i>&nbsp; Password doesn't match.
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="form-group row">
+            <div class="col-md-12 ">
+              <div class="custom-control custom-checkbox">
+                <input type="checkbox" name="checkboxTerms" class="custom-control-input" id="customCheck1">
+                <label class="custom-control-label" for="customCheck1">I agree to all <a href="javascript:void(0)">Terms</a></label>
+              </div>
+            </div>
+          </div>
+          <div class="form-group text-center ">
+            <div class="col-xs-12 p-b-20 ">
+              <button mat-raised-button color="primary" class="buttonSubmit" [disabled]="registerForm.invalid" (click)="openConfirm()">SIGN UP</button>
+            </div>
+          </div>
+          <div class="form-group m-b-0 m-t-10 ">
+            <div class="col-sm-12 text-center ">
+              Already have an account? <a routerLink="/login" class="text-info m-l-5 "><b>Sign In</b></a>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

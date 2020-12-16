@@ -19,12 +19,43 @@
             "polyfills": "src/polyfills.ts",
             "tsConfig": "tsconfig.app.json",
             "aot": true,
+            "allowedCommonJsDependencies": [
+              "c3",
+              "rxjs",
+              "date-fns",
+              "rxjs-compat",
+              "chart.js",
+              "lodash",
+              "chartist",
+              "dom-plane",
+              "dom-set",
+              "crossvent",
+              "calendar-utils",
+              "angular-calendar",
+              "@mattlewis92/dom-autoscroller",
+              "@agm/core",
+              "angular-draggable-droppable",
+              "@swimlane/ngx-charts"
+            ],
             "assets": [
               "src/favicon.ico",
               "src/assets"
             ],
             "styles": [
-              "src/styles.css"
+              "./node_modules/@angular/material/prebuilt-themes/indigo-pink.css",
+              "src/styles.css",
+              "node_modules/chartist/dist/chartist.min.css",
+              "node_modules/c3/c3.min.css",
+              "node_modules/datatables.net-dt/css/jquery.dataTables.css",
+              "node_modules/ngx-toastr/toastr.css",
+              "node_modules/quill/dist/quill.snow.css",
+              "node_modules/quill/dist/quill.bubble.css",
+              "node_modules/angular-calendar/css/angular-calendar.css",
+              "node_modules/@swimlane/ngx-datatable/index.css",
+              "node_modules/@swimlane/ngx-datatable/themes/material.css",
+              "node_modules/@swimlane/ngx-datatable/assets/icons.css",
+              "src/assets/vendor/css-chart.css",
+              "src/assets/scss/style.scss"
             ],
             "scripts": []
           },
@@ -87,6 +118,7 @@
               "src/assets"
             ],
             "styles": [
+              "./node_modules/@angular/material/prebuilt-themes/indigo-pink.css",
               "src/styles.css"
             ],
             "scripts": []

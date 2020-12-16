@@ -1,0 +1,10 @@
+{
+  "auth": {
+    "goafricaapp8edba2db": {
+      "service": "Cognito",
+      "providerPlugin": "awscloudformation",
+      "dependsOn": [],
+      "customAuth": false
+    }
+  }
+}

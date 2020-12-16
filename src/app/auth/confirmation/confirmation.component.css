@@ -1,0 +1,11 @@
+mat-form-field{
+  width: 100%;
+}
+.send:hover{
+  cursor: pointer;
+}
+
+.send{
+  font-weight: 300;
+  color: blue;
+}
