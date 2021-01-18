@@ -1,3 +1,4 @@
+import { HttpClientModule } from '@angular/common/http';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
@@ -11,11 +12,13 @@ import { RegisterComponent } from './auth/register/register.component';
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from '../app/material/material.module';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms'
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 //import { Approutes } from './app-routing.module';
 import { AppRoutingModule } from './app-routing.module';
 import { RouterModule } from '@angular/router';
 import { ConfirmationComponent } from './auth/confirmation/confirmation.component';
+
+import { RecaptchaModule, RecaptchaFormsModule } from 'ng-recaptcha';
 
 /* Configure Amplify resources */
 Amplify.configure(awsconfig);
@@ -34,7 +37,10 @@ Amplify.configure(awsconfig);
     MaterialModule,
     FormsModule,
     ReactiveFormsModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule,
+    RecaptchaModule,
+    RecaptchaFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

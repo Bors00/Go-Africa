@@ -1,80 +1,243 @@
-<div class="auth-wrapper d-flex no-block justify-content-center align-items-center" style="background:url(assets/images/background/login-register.jpg) no-repeat center center;">
-  <div class="auth-box m-3 col-md-5">
-      <div id="loginform">
-          <div class="logo">
-              <span class="db"><img src="assets/images/logo-icon.png" alt="logo" /></span>
-              <h5 class="font-medium m-b-20">Sign In to Admin</h5>
+<!--div id="allWrapper">
+  <div id="leftSidebar"></div>
+
+  <div id="centerOrContent">
+    <div class="wrap-login">
+      <div class="wrap-header">
+          <span class="loginText"> Login </span>
+      </div>
+      <form form method='post' [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+          <div class="wrap-input">
+              <mat-form-field appearance="outline">
+                  <mat-label>Username</mat-label>
+                  <input matInput formControlName="username" name="username" type="text">
+              </mat-form-field>
+              <div class="errorMsg" *ngIf="loginForm.invalid && (loginForm.get('username').dirty || loginForm.get('username').touched)">
+                <div *ngIf="loginForm.get('username').hasError('required')">
+                  <p>This field is required</p>
+                </div>
+            </div>
           </div>
-          <!-- Form -->
-          <div class="row">
-              <div class="col-12">
-                  <form method='post' [formGroup]="loginForm" (ngSubmit)="onSubmit()" class="form-horizontal m-t-20" id="loginform">
-                      <div class="input-group mb-3">
-                          <div class="input-group-prepend">
-                              <span class="input-group-text" id="basic-addon1"><i class="ti-user"></i></span>
-                          </div>
-                          <input type="text" formControlName="username" name="username" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1" required>
-                      </div>
-                      <div class="input-group mb-3">
-                          <div class="input-group-prepend">
-                              <span class="input-group-text" id="basic-addon2"><i class="ti-pencil"></i></span>
-                          </div>
-                          <input type="password" formControlName="password" name="password" class="form-control" placeholder="Password" aria-label="Password" aria-describedby="basic-addon1" required>
-                      </div>
-                      <div class="form-group row">
-                          <div class="col-md-12">
-                              <div class="custom-control custom-checkbox d-flex">
-                                  <input type="checkbox" name="remember" class="custom-control-input" id="customCheck1">
-                                  <label class="custom-control-label font-14" for="customCheck1">Remember me</label>
-                                  <a (click)="showRecoverForm()" href="javascript:void(0)" id="to-recover" class="text-dark font-14 ml-auto"><i class="fa fa-lock m-r-5"></i> Forgot pwd?</a>
-                              </div>
-                          </div>
-                      </div>
-                      <div class="form-group text-center">
-                          <div class="col-xs-12 p-b-20">
-                              <button class="btn btn-block btn-lg btn-info">Log In</button>
-                          </div>
-                      </div>
-                      <div class="row">
-                          <div class="col-xs-12 col-sm-12 col-md-12 m-t-10 text-center">
-                              <div class="social">
-                                  <a href="javascript:void(0)" class="btn btn-facebook mr-2" data-toggle="tooltip" title="" data-original-title="Login with Facebook"> <i aria-hidden="true" class="fab fa-facebook"></i> </a>
-                                  <a href="javascript:void(0)" class="btn btn-googleplus" data-toggle="tooltip" title="" data-original-title="Login with Google"> <i aria-hidden="true" class="fab fa-google-plus"></i> </a>
-                              </div>
-                          </div>
-                      </div>
-                      <div class="form-group m-b-0 m-t-10">
-                          <div class="col-sm-12 text-center">
-                              Don't have an account? <a routerLink="/register" class="text-info m-l-5"><b>Sign Up</b></a>
-                          </div>
-                      </div>
-                  </form>
+
+          <div class="wrap-input">
+              <mat-form-field appearance="outline">
+                  <mat-label>Password</mat-label>
+                      <input matInput formControlName="password" name="password" [type]="hide ? 'password' : 'text'">
+                      <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+                      <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                      </button>
+              </mat-form-field>
+              <div class="errorMsg" *ngIf="loginForm.invalid && (loginForm.get('password').dirty || loginForm.get('password').touched)">
+                <div *ngIf="loginForm.get('password').hasError('required')">
+                  <p>This field is required</p>
+                </div>
               </div>
           </div>
-      </div>
-      <div id="recoverform">
-          <div class="logo">
-              <span class="db"><img src="assets/images/logo-icon.png" alt="logo" /></span>
-              <h5 class="font-medium m-b-20">Recover Password</h5>
-              <span>Enter your Email and instructions will be sent to you!</span>
+          <div class="form-group row">
+            <div class="col-md-12">
+                <div class="custom-control custom-checkbox d-flex">
+                    <input type="checkbox" name="remember" class="custom-control-input" id="customCheck1">
+                    <label class="custom-control-label" for="customCheck1">Remember me</label>
+                    <a (click)="showRecoverForm()" href="javascript:void(0)" id="to-recover" class="text-dark ml-auto"> Forgot password?</a>
+                </div>
+            </div>
+        </div>
+
+          <button mat-raised-button class="submit" style="background-color: rgb(137, 199, 74); color: white;">Connexion</button>
+
+          <div class="txt2 text-center">
+            <a routerLink="/register"  style="color: rgb(137, 199, 74);"> Don't have an account</a>
           </div>
-          <div class="row m-t-20">
-              <!-- Form -->
-              <form class="col-12">
-                  <!-- email -->
+      </form>
+    </div>
+  </div>
+
+  <div id="rightSidebar"></div>
+
+</div-->
+
+
+
+
+
+
+
+
+  <div class="wrapper1">
+    <div class="col-12">
+      <div class="wrapper">
+        <div class="wrap-text">
+          <h1>Let's build the african dream</h1>
+          Join us and get access to our community,
+          invest or put your projects in good hands...
+        </div>
+        <div class="wrap-login">
+          <div class="wrap-header">
+              <span class="logintext"> Login </span>
+          </div>
+          <form form method='post' [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+            <div *ngIf="isValidate==false">
+              <div class="wrap-input">
+                <mat-form-field appearance="outline">
+                    <mat-label>Username</mat-label>
+                    <input matInput formControlName="username" name="username" type="text">
+                </mat-form-field>
+                <div class="errorMsg" *ngIf="loginForm.invalid && (loginForm.get('username').dirty || loginForm.get('username').touched)">
+                  <div *ngIf="loginForm.get('username').hasError('required')">
+                    <p>This field is required</p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="wrap-input">
+                  <mat-form-field appearance="outline">
+                      <mat-label>Password</mat-label>
+                          <input matInput formControlName="password" name="password" [type]="hide ? 'password' : 'text'">
+                          <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+                          <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                          </button>
+                  </mat-form-field>
+                  <div class="errorMsg" *ngIf="loginForm.invalid && (loginForm.get('password').dirty || loginForm.get('password').touched)">
+                    <div *ngIf="loginForm.get('password').hasError('required')">
+                      <p>This field is required</p>
+                    </div>
+                  </div>
+              </div>
+
+              <div class="form-group row">
+                <div class="col-md-12">
+                    <div class="custom-control custom-checkbox d-flex">
+                        <input type="checkbox" name="remember" class="custom-control-input" id="customCheck1">
+                        <label class="custom-control-label text-dark" for="customCheck1">Remember me</label>
+                        <a (click)="showRecoverForm()" href="javascript:void(0)" id="to-recover" class="text-dark ml-auto"> Forgot password?</a>
+                    </div>
+                </div>
+              </div>
+
+              <button mat-raised-button class="submit" (click)="isValidate=true"
+              [disabled]="loginForm.get('password').hasError('required') || loginForm.get('username').hasError('required')">Continue</button>
+
+              <div class="txt2 text-center">
+                <a routerLink="/register"  style="color: rgb(137, 199, 74);"> Don't have an account</a>
+              </div>
+            </div>
+
+            <div *ngIf="isValidate">
+              <div class="re-captcha">
+                <re-captcha formControlName="recaptchaReactive" class="recap" (resolved)="resolved($event)" siteKey="6LdbcBoaAAAAAFWBFLgay-SjldsdQ3Zmn5qGZx1Y"></re-captcha>
+              </div>
+              <button mat-raised-button type="submit" class="submit" *ngIf="loginForm.valid">Confirm</button>
+              <button mat-stroked-button class="cancel" (click)="isValidate=false" *ngIf="loginForm.get('recaptchaReactive').hasError('required')">Cancel</button>
+            </div>
+
+
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!--div class="auth-wrapper d-flex no-block justify-content-center align-items-center" style="background:url(assets/images/background/login-register.jpg) no-repeat center center;">
+  <div class="auth-box m-3 col-md-5">
+    <div id="loginform">
+      <div class="logo">
+        <span class="db"><img src="assets/images/logo-icon.png" alt="logo" /></span>
+        <h5 class="font-medium m-b-20">Sign In to Admin</h5>
+      </div>
+      < -Form- >
+      <div class="row">
+          <div class="col-12">
+              <form method='post' [formGroup]="loginForm" (ngSubmit)="onSubmit()" class="form-horizontal m-t-20" id="loginform">
+                  <div class="input-group mb-3">
+                      <div class="input-group-prepend">
+                          <span class="input-group-text" id="basic-addon1"><i class="ti-user"></i></span>
+                      </div>
+                      <input type="text" formControlName="username" name="username" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1" required>
+                  </div>
+                  <div class="input-group mb-3">
+                      <div class="input-group-prepend">
+                          <span class="input-group-text" id="basic-addon2"><i class="ti-pencil"></i></span>
+                      </div>
+                      <input type="password" formControlName="password" name="password" class="form-control" placeholder="Password" aria-label="Password" aria-describedby="basic-addon1" required>
+                  </div>
                   <div class="form-group row">
-                      <div class="col-12">
-                          <input class="form-control form-control-lg" type="email" required="" placeholder="Username">
+                      <div class="col-md-12">
+                          <div class="custom-control custom-checkbox d-flex">
+                              <input type="checkbox" name="remember" class="custom-control-input" id="customCheck1">
+                              <label class="custom-control-label font-14" for="customCheck1">Remember me</label>
+                              <a (click)="showRecoverForm()" href="javascript:void(0)" id="to-recover" class="text-dark font-14 ml-auto"><i class="fa fa-lock m-r-5"></i> Forgot pwd?</a>
+                          </div>
                       </div>
                   </div>
-                  <!-- pwd -->
-                  <div class="row m-t-20">
-                      <div class="col-12">
-                          <button class="btn btn-block btn-lg btn-danger" type="submit" name="action">Reset</button>
+                  <div class="form-group row">
+                    <div class="col-md-12">
+                      <re-captcha formControlName="recaptchaReactive" class="re-captcha" (resolved)="resolved($event)" siteKey="6LdbcBoaAAAAAFWBFLgay-SjldsdQ3Zmn5qGZx1Y"></re-captcha>
+                    </div>
+                  </div>
+                  <div class="form-group text-center">
+                      <div class="col-xs-12 p-b-20">
+                          <button [disabled]="loginForm.invalid" class="btn btn-block btn-lg btn-info">Log In</button>
+                      </div>
+                  </div>
+                  <div class="row">
+                      <div class="col-xs-12 col-sm-12 col-md-12 m-t-10 text-center">
+                          <div class="social">
+                              <a href="javascript:void(0)" class="btn btn-facebook mr-2" data-toggle="tooltip" title="" data-original-title="Login with Facebook"> <i aria-hidden="true" class="fab fa-facebook"></i> </a>
+                              <a href="javascript:void(0)" class="btn btn-googleplus" data-toggle="tooltip" title="" data-original-title="Login with Google"> <i aria-hidden="true" class="fab fa-google-plus"></i> </a>
+                          </div>
+                      </div>
+                  </div>
+                  <div class="form-group m-b-0 m-t-10">
+                      <div class="col-sm-12 text-center">
+                          Don't have an account? <a routerLink="/register" class="text-info m-l-5"><b>Sign Up</b></a>
                       </div>
                   </div>
               </form>
           </div>
       </div>
+    </div>
+
+
+    <div id="recoverform">
+        <div class="logo">
+            <span class="db"><img src="assets/images/logo-icon.png" alt="logo" /></span>
+            <h5 class="font-medium m-b-20">Recover Password</h5>
+            <span>Enter your Email and instructions will be sent to you!</span>
+        </div>
+        <div class="row m-t-20">
+            <!- Form ->
+            <form class="col-12">
+                <!- email ->
+                <div class="form-group row">
+                    <div class="col-12">
+                        <input class="form-control form-control-lg" type="email" required="" placeholder="Username">
+                    </div>
+                </div>
+                <!- pwd ->
+                <div class="row m-t-20">
+                    <div class="col-12">
+                        <button class="btn btn-block btn-lg btn-danger" type="submit" name="action">Reset</button>
+                    </div>
+                </div>
+
+            </form>
+        </div>
+    </div>
   </div>
-</div>
+</div-->

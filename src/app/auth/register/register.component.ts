@@ -5,6 +5,8 @@ import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 import { Router } from '@angular/router';
 import { AuthService } from 'src/app/services/auth.service';
 import { passConfirmValidator } from '../../validors';
+import { UserClass } from 'src/app/userClass';
+import { Renderer2 } from '@angular/core';
 
 @Component({
   selector: 'app-register',
@@ -15,12 +17,20 @@ export class RegisterComponent implements OnInit {
 
   registerForm: FormGroup;
   errorMsg: string;
-  constructor(private fb: FormBuilder, private router: Router, private auth: AuthService, private dialog: MatDialog) {
+  user: UserClass = {
+    username: '',
+    email: '',
+    password: ''
+  };
+
+  constructor(private fb: FormBuilder, private router: Router, private auth: AuthService, private dialog: MatDialog, private renderer: Renderer2) {
     this.registerForm = this.fb.group({
       username: ['', [Validators.required, Validators.minLength(4)]],
       email: ['', [Validators.required, Validators.email]],
       password: ['', [Validators.required, Validators.pattern(RegExp('^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{6,}$'))]],
       passwordch: ['', [Validators.required, passConfirmValidator]],
+      checkboxTerms: ['', [Validators.required]],
+      recaptchaReactive: ['', [Validators.required]],
     });
 
     this.registerForm.controls.password.valueChanges
@@ -30,6 +40,12 @@ export class RegisterComponent implements OnInit {
    }
 
   ngOnInit(): void {
+    /* recaptcha script*/
+    const script = this.renderer.createElement('script');
+    script.defer = true;
+    script.async = true;
+    script.src = 'https://www.google.com/recaptcha/api.js';
+    this.renderer.appendChild(document.body, script);
 
   }
 
@@ -41,6 +57,16 @@ export class RegisterComponent implements OnInit {
     this.auth.signUp(username, password, email).subscribe(
       () => {
         console.log('Sign up successfully');
+      },
+      (error) => {
+        console.log(error);
+      }
+    );
+
+    this.auth.createUser(this.user).subscribe(
+      data => {
+        console.log('Adding into database');
+        console.log(data);
       },
       (error) => {
         console.log(error);
